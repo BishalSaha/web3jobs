@@ -1,116 +1,102 @@
+@font-face {
+  font-family: "Commando";
+  src: url("/fonts/Commando.ttf");
+}
+
 .container {
-  padding: 0 2rem;
+  background-color: black;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.video {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -5;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+.textContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
+.centered {
   text-align: center;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.centered::before {
+  animation: glitch-1 2s linear infinite reverse;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.centered::after {
+  animation: glitch-2 2s linear infinite reverse;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+.chrome80s {
+  font-family: "Commando", sans-serif;
+  font-size: 8rem;
+  font-weight: 100;
+  position: relative;
+  white-space: nowrap;
+
+  background-image: linear-gradient(
+    #010012 20%,
+    #4694c9 40%,
+    #fdf9f7 50%,
+    #010923 50%,
+    #d7674f 60%,
+    #ffc2a4 70%,
+    #edb18c 90%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.1rem;
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.2);
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+.chrome80s::before {
+  content: attr(data-text);
+  filter: url(#bevel);
+  background: linear-gradient(
+      #ffffff 20%,
+      #58bee4 30%,
+      #204a68 50%,
+      #62a7d1 70%,
+      #ffffff 80%
+    )
+    0% 0% repeat;
+  background-clip: text;
+  position: absolute;
+  z-index: -1;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.chrome80s::after {
+  content: attr(data-text);
+  position: absolute;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+  transform: translate(-100%);
+  z-index: -2;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+@media (max-width: 760px) {
+  .chrome80s {
+    font-size: 6rem;
+    font-weight: 80;
+  }
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+@media (max-width: 523px) {
+  .chrome80s {
+    font-size: 6rem;
+    font-weight: 80;
+  }
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+@media (max-width: 390px) {
+  .chrome80s {
+    font-size: 4rem;
+    font-weight: 75;
   }
 }
