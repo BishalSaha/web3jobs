@@ -24,7 +24,7 @@ const Home: NextPage = () => {
               />
             </filter>
             <filter id="noise" x="0vw" y="0vh" width="100vw" height="100vh">
-              <feFlood flood-color="#808080" result="neutral-gray" />
+              <feFlood floodColor="#808080" result="neutral-gray" />
               <feTurbulence
                 in="neutral-gray"
                 type="fractalNoise"
